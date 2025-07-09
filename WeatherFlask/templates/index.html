@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web Page</title>
+</head>
+<body>
+    <h1>🌤️ Weather App</h1>
+
+    <form method="get" action="/">
+        Enter a city name: <input type="text" name="city" placeholder="city name.."> <br>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+        <h2>{{ weather.city }}, {{ weather.country }}</h2>
+        <ul>
+            <li><strong>Temperature:</strong> {{ weather.temperature }}°C</li>
+            <li><strong>Condition:</strong> {{ weather.condition.capitalize() }}</li>
+            <li><strong>Humidity:</strong> {{ weather.humidity }}%</li>
+            <li><strong>Wind Speed:</strong> {{ weather.wind_speed }} m/s</li>
+            <li><strong>Coordinates:</strong> {{ weather.lat }}, {{ weather.lon }}</li>
+            <li><strong>Sunrise at:</strong> {{ weather.sunrise_time }}</li>
+            <li><strong>Sunset at:</strong> {{ weather.sunset_time }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
